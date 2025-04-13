@@ -3,21 +3,23 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
-import Home from './components/Home';
-import Menu from './components/Menu';
-import Reservations from './components/Reservations';
+import Homepage from './components/Homepage';
+import ChooseRestaurant from './components/ChooseRestaurant';
+import Profile from './components/Profile';
+import Header from './components/Header';
+import FooterNav from './components/FooterNav';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Menu />
-        <main className="container mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/reservations" element={<Reservations />} />
-          </Routes>
-        </main>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/choisir-restaurant" element={<ChooseRestaurant />} />
+          <Route path="/profil" element={<Profile />} />
+        </Routes>
+        <FooterNav />
         <ToastContainer position="bottom-right" />
       </div>
     </Router>
