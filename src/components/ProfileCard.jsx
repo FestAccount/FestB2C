@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../api/config';
+import { api } from '../api/config';
 
 function ProfileCard() {
   const [profile, setProfile] = useState(null);
@@ -9,8 +9,7 @@ function ProfileCard() {
     const fetchProfile = async () => {
       try {
         // TODO: Remplacer 1 par l'ID réel de l'utilisateur
-        const response = await fetch(`${API_BASE_URL}/api/users/1`);
-        const data = await response.json();
+        const data = await api.getUser(1);
         setProfile(data);
       } catch (error) {
         console.error('Erreur lors du chargement du profil:', error);

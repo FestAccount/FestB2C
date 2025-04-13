@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../api/config';
+import { api } from '../api/config';
 import { Star } from '@mui/icons-material';
 
 function NearbyRestaurants() {
@@ -9,8 +9,7 @@ function NearbyRestaurants() {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/restaurants/nearby`);
-        const data = await response.json();
+        const data = await api.getNearbyRestaurants();
         setRestaurants(data);
       } catch (error) {
         console.error('Erreur lors du chargement des restaurants:', error);
